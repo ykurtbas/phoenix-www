@@ -1,6 +1,30 @@
-# kitchensink
-This will be renamed later on to proper repository name
+# Elxsy :ex
 
-Rather than cleaning up the current one and correcting some mistakes
+## Notes
 
-I am going to start new features with this repository - learned from past mistakes - and back port the 'core' into it as necessary.
+>This will be renamed later on to proper repository name
+
+> Rather than cleaning up the current one and correcting some mistakes
+
+> I am going to start new features with this repository - learned from past mistakes - and back port the 'core' into it as necessary.
+
+# Application
+
+To start your Phoenix server:
+
+  * Install dependencies with `mix deps.get`
+  * Create and migrate your database with `mix ecto.setup`
+  * Install Node.js dependencies with `npm install` inside the `assets` directory
+  * Start Phoenix endpoint with `mix phx.server`
+
+Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+
+Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+
+## Learn more
+
+  * Official website: https://www.phoenixframework.org/
+  * Guides: https://hexdocs.pm/phoenix/overview.html
+  * Docs: https://hexdocs.pm/phoenix
+  * Forum: https://elixirforum.com/c/phoenix-forum
+  * Source: https://github.com/phoenixframework/phoenix
