@@ -1,0 +1,32 @@
+<h1>Show Inventory</h1>
+
+<%= if @live_action in [:edit] do %>
+  <%= live_modal @socket, ExWeb.InventoryLive.FormComponent,
+    id: @inventory.id,
+    title: @page_title,
+    action: @live_action,
+    inventory: @inventory,
+    return_to: Routes.inventory_show_path(@socket, :show, @inventory) %>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Unit:</strong>
+    <%= @inventory.unit %>
+  </li>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @inventory.name %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @inventory.description %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.inventory_show_path(@socket, :edit, @inventory), class: "button" %></span>
+<span><%= live_redirect "Back", to: Routes.inventory_index_path(@socket, :index) %></span>

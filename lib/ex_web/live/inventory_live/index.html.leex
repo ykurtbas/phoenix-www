@@ -1,0 +1,34 @@
+<%= if @live_action in [:new, :edit] do %>
+  <%= live_modal @socket, ExWeb.InventoryLive.FormComponent,
+    id: @inventory.id || :new,
+    title: @page_title,
+    action: @live_action,
+    inventory: @inventory,
+    return_to: Routes.inventory_index_path(@socket, :index) %>
+<% end %>
+<%= live_component @socket, ExWeb.InventoryLive.AddComponent, id: "new-inventory" %>
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Unit</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="stock_inventories">
+    <%= for inventory <- @stock_inventories do %>
+      <tr id="inventory-<%= inventory.id %>">
+        <td><%= inventory.unit %></td>
+        <td><%= inventory.name %></td>
+        <td><%= inventory.description %></td>
+        <td>
+          <span><%= live_redirect "Show", to: Routes.inventory_show_path(@socket, :show, inventory) %></span>
+          <span><%= live_patch "Edit", to: Routes.inventory_index_path(@socket, :edit, inventory) %></span>
+          <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: inventory.id, data: [confirm: "Are you sure?"] %></span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<span><%= live_patch "New Inventory", to: Routes.inventory_index_path(@socket, :new) %></span>
